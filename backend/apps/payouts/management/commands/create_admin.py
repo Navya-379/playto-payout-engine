@@ -11,7 +11,7 @@ class Command(BaseCommand):
         # create fresh admin
         User.objects.create_superuser(
             username="name",
-            email="someeamil",
+            email="someemail",
             password="mypassword"
         )
 
