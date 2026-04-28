@@ -63,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "backend.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "backend.asgi.application"
 
 # ========================
@@ -85,6 +85,7 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
+
 # ========================
 # INTERNATIONALIZATION
 # ========================
