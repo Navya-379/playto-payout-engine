@@ -10,8 +10,8 @@ class Command(BaseCommand):
 
         # create fresh admin
         User.objects.create_superuser(
-            username="admn",
-            email="admn@12345.com",
+            username="name",
+            email="email.com",
             password="mypassword"
         )
 
