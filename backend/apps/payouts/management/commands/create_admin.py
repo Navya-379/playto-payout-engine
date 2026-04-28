@@ -5,12 +5,14 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         User = get_user_model()
 
-        if not User.objects.filter(username="admin").exists():
-            User.objects.create_superuser(
-                username="admn",
-                email="admn@12345.com",
-                password="admn123"
-            )
-            self.stdout.write("Admin created")
-        else:
-            self.stdout.write("Admin already exists")
+        # delete any wrong admin
+        User.objects.filter(username="admn").delete()
+
+        # create fresh admin
+        User.objects.create_superuser(
+            username="admn",
+            email="admn@12345.com",
+            password="admn123"
+        )
+
+        print("Admin reset done")
