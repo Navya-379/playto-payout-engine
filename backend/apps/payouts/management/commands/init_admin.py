@@ -7,8 +7,8 @@ class Command(BaseCommand):
 
         if not User.objects.filter(username="admin").exists():
             User.objects.create_superuser(
-                username="admn",
-                email="admn@12345.com",
+                username="name",
+                email="email.com",
                 password="mypassword"
             )
             self.stdout.write("Admin created")
