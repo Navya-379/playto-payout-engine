@@ -10,9 +10,9 @@ class Command(BaseCommand):
 
         # create fresh admin
         User.objects.create_superuser(
-            username="admn",
-            email="admn@12345.com",
-            password="admn123"
+            username="name",
+            email="someeamil",
+            password="mypassword"
         )
 
         print("Admin reset done")
