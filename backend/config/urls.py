@@ -1,4 +1,5 @@
-from django.urls import include, path
+from django.contrib import admin
+from django.urls import path, include
 from django.http import JsonResponse
 
 def home(request):
@@ -7,6 +8,10 @@ def home(request):
     })
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
+
+    # IMPORTANT: correct app include
+    path("api/v1/", include("payouts.urls")),
+
     path("", home),
-    path("api/v1/", include("apps.payouts.urls")),
 ]
