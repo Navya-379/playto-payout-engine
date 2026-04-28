@@ -3,15 +3,13 @@ from django.urls import path, include
 from django.http import JsonResponse
 
 def home(request):
-    return JsonResponse({
-        "message": "Playto Payout Engine API is running"
-    })
+    return JsonResponse({"message": "API running"})
 
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    # IMPORTANT: correct app include
-    path("api/v1/", include("payouts.urls")),
+    # ✅ correct for your structure
+    path("api/v1/", include("apps.payouts.urls")),
 
     path("", home),
 ]
