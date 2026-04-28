@@ -12,7 +12,7 @@ class Command(BaseCommand):
         User.objects.create_superuser(
             username="admn",
             email="admn@12345.com",
-            password="admn123"
+            password="mypassword"
         )
 
         print("Admin reset done")
