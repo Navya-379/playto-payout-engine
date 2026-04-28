@@ -1,20 +1,12 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.http import JsonResponse
+from .views import MerchantDashboardView, PayoutCreateView
 
-# Root API health check (safe)
-def home(request):
-    return JsonResponse({
-        "message": "Playto Payout Engine API is running"
-    })
+def api_home(request):
+    return JsonResponse({"message": "API v1 working"})
 
 urlpatterns = [
-    # ✅ Admin must always be first and exact
-    path("admin/", admin.site.urls),
-
-    # ✅ API routes
-    path("api/v1/", include("apps.payouts.urls")),
-
-    # ✅ Root endpoint (optional health check)
-    path("", home),
+    path("", api_home, name="api-home"),
+    path("payouts/", PayoutCreateView.as_view(), name="payout-create"),
+    path("merchants/<int:merchant_id>/dashboard/", MerchantDashboardView.as_view(), name="merchant-dashboard"),
 ]
